@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="workmanager.dao.FriendMapper" >
+    <select id="selectFriendByAddUserId" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select t1.real_name addUserName ,t2.real_name addedUserName from friend t left join t_user t1 on t.add_user_id = t1.id
+        left join t_user t2 on t.added_user_id = t2.id where t.add_user_id = #{addUserId,jdbcType=INTEGER}
+    </select>
+</mapper>
